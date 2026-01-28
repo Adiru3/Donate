@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adiru3 | Developer Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { background-color: #0d1117; color: #c9d1d9; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+        .github-card { background-color: #161b22; border: 1px solid #30363d; border-radius: 6px; }
+        .btn-copy { transition: all 0.2s; }
+        .btn-copy:active { transform: scale(0.95); }
+        .lang-select { background: #21262d; border: 1px solid #30363d; color: #c9d1d9; }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+
+    <div class="max-w-3xl mx-auto">
+        <div class="flex flex-col items-center mb-8">
+            <img src="https://github.com/Adiru3.png" alt="Avatar" class="w-32 h-32 rounded-full border-4 border-[#30363d] mb-4">
+            <h1 class="text-3xl font-bold text-white">Adiru3 (amazingb01)</h1>
+            <p class="text-gray-400 text-lg">Developer & Content Creator</p>
+            
+            <div class="mt-4 flex items-center gap-2">
+                <i class="fas fa-language text-xl"></i>
+                <select id="langSwitcher" class="lang-select rounded px-3 py-1 outline-none">
+                    <option value="en">English</option>
+                    <option value="ru">Русский</option>
+                    <option value="uk">Українська</option>
+                    <option value="tr">Türkçe</option>
+                    <option value="zh">中文</option>
+                    <option value="ja">日本語</option>
+                    <option value="ar">العربية</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-3 mb-10">
+            <a href="https://github.com/Adiru3" target="_blank"><img src="https://img.shields.io/badge/GitHub-Adiru3-181717?style=for-the-badge&logo=github" alt="GitHub"></a>
+            <a href="https://www.youtube.com/@adiruaim" target="_blank"><img src="https://img.shields.io/badge/YouTube-@adiruaim-FF0000?style=for-the-badge&logo=youtube" alt="YouTube"></a>
+            <a href="https://www.tiktok.com/@adiruhs" target="_blank"><img src="https://img.shields.io/badge/TikTok-@adiruhs-000000?style=for-the-badge&logo=tiktok" alt="TikTok"></a>
+            <a href="https://donatello.to/Adiru3" target="_blank"><img src="https://img.shields.io/badge/Support-Donatello-orange?style=for-the-badge" alt="Donatello"></a>
+            <a href="https://ko-fi.com/adiru" target="_blank"><img src="https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white" alt="Ko-fi"></a>
+            <a href="https://steamcommunity.com/tradeoffer/new/?partner=1124211419&token=2utLCl48" target="_blank"><img src="https://img.shields.io/badge/Steam-Trade-blue?style=for-the-badge&logo=steam" alt="Steam"></a>
+        </div>
+
+        <div class="github-card p-6">
+            <h2 class="text-xl font-semibold mb-4 border-b border-[#30363d] pb-2 text-white">
+                <i class="fas fa-wallet mr-2 text-yellow-500"></i> Donate Crypto
+            </h2>
+            
+            <div class="space-y-4">
+                <div class="flex flex-col">
+                    <span class="text-sm text-gray-400 mb-1">USDT (TRC20)</span>
+                    <div class="flex items-center gap-2">
+                        <input type="text" readonly value="TNgFjGzbGxztHDcSHx9DEPmQLxj2dWzozC" class="bg-[#0d1117] border border-[#30363d] rounded p-2 flex-grow text-sm font-mono">
+                        <button onclick="copyToClipboard('TNgFjGzbGxztHDcSHx9DEPmQLxj2dWzozC', this)" class="btn-copy bg-[#21262d] hover:bg-[#30363d] border border-[#30363d] px-4 py-2 rounded">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex flex-col">
+                    <span class="text-sm text-gray-400 mb-1">USDT (TON)</span>
+                    <div class="flex items-center gap-2">
+                        <input type="text" readonly value="UQC5fsX4zON_FgW4I6iVrxVDtsVwrcOmqbjsYA4TrQh3aOvj" class="bg-[#0d1117] border border-[#30363d] rounded p-2 flex-grow text-sm font-mono">
+                        <button onclick="copyToClipboard('UQC5fsX4zON_FgW4I6iVrxVDtsVwrcOmqbjsYA4TrQh3aOvj', this)" class="btn-copy bg-[#21262d] hover:bg-[#30363d] border border-[#30363d] px-4 py-2 rounded">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex flex-col">
+                    <span class="text-sm text-gray-400 mb-1">ETH (ERC20)</span>
+                    <div class="flex items-center gap-2">
+                        <input type="text" readonly value="0xf35Afdf42C8bf1C3bF08862f573c2358461e697f" class="bg-[#0d1117] border border-[#30363d] rounded p-2 flex-grow text-sm font-mono">
+                        <button onclick="copyToClipboard('0xf35Afdf42C8bf1C3bF08862f573c2358461e697f', this)" class="btn-copy bg-[#21262d] hover:bg-[#30363d] border border-[#30363d] px-4 py-2 rounded">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex flex-col">
+                    <span class="text-sm text-gray-400 mb-1">Bitcoin (BTC)</span>
+                    <div class="flex items-center gap-2">
+                        <input type="text" readonly value="bc1qflvetccw7vu59mq074hnvf03j02sjjf9t5dphl" class="bg-[#0d1117] border border-[#30363d] rounded p-2 flex-grow text-sm font-mono">
+                        <button onclick="copyToClipboard('bc1qflvetccw7vu59mq074hnvf03j02sjjf9t5dphl', this)" class="btn-copy bg-[#21262d] hover:bg-[#30363d] border border-[#30363d] px-4 py-2 rounded">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex flex-col">
+                    <span class="text-sm text-gray-400 mb-1">Solana (SOL)</span>
+                    <div class="flex items-center gap-2">
+                        <input type="text" readonly value="5r2H3R2wXmA1JimpCypmoWLh8eGmdZA6VWjuit3AuBkq" class="bg-[#0d1117] border border-[#30363d] rounded p-2 flex-grow text-sm font-mono">
+                        <button onclick="copyToClipboard('5r2H3R2wXmA1JimpCypmoWLh8eGmdZA6VWjuit3AuBkq', this)" class="btn-copy bg-[#21262d] hover:bg-[#30363d] border border-[#30363d] px-4 py-2 rounded">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-10 text-center text-gray-500 text-sm">
+            &copy; 2026 Adiru3. Built with GitHub Style.
+        </footer>
+    </div>
+
+    <script>
+        // Copy Function
+        function copyToClipboard(text, btn) {
+            navigator.clipboard.writeText(text).then(() => {
+                const icon = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check text-green-500"></i>';
+                setTimeout(() => {
+                    btn.innerHTML = icon;
+                }, 2000);
+            });
+        }
+
+        // Language Switcher Logic (Simple implementation)
+        const translations = {
+            en: { title: "Donate Crypto" },
+            ru: { title: "Пожертвовать крипту" },
+            uk: { title: "Підтримати криптою" },
+            tr: { title: "Kripto Bağış Yap" },
+            zh: { title: "加密货币捐赠" },
+            ja: { title: "暗号資産で寄付" },
+            ar: { title: "تبرع بالعملات الرقمية" }
+        };
+
+        document.getElementById('langSwitcher').addEventListener('change', (e) => {
+            const lang = e.target.value;
+            const h2 = document.querySelector('h2');
+            if(translations[lang]) {
+                h2.innerHTML = `<i class="fas fa-wallet mr-2 text-yellow-500"></i> ${translations[lang].title}`;
+            }
+        });
+    </script>
+</body>
+</html>
