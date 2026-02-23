@@ -142,41 +142,79 @@
             font-size: 0.875rem;
         }
 
-        /* Float animation */
-        .float {
-            animation: floating 3s ease-in-out infinite;
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
         }
 
-        @keyframes floating {
-            0% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-
-            100% {
-                transform: translateY(0px);
-            }
+        .modal.active {
+            opacity: 1;
+            pointer-events: auto;
         }
 
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
+        .modal-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
         }
 
-        ::-webkit-scrollbar-track {
-            background: var(--bg);
+        .modal-content {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 32px;
+            transform: scale(0.9);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        ::-webkit-scrollbar-thumb {
-            background: #374151;
-            border-radius: 4px;
+        .modal.active .modal-content {
+            transform: scale(1);
         }
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: #4b5563;
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--secondary);
+        }
+
+        .advantage-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .advantage-icon {
+            flex-shrink: 0;
+            font-size: 1.2rem;
         }
     </style>
 </head>
@@ -203,86 +241,123 @@
             </div>
         </div>
 
-        <!-- Hero Section -->
-        <section class="flex flex-col items-center text-center mb-12">
-            <div class="relative mb-6">
-                <div
-                    class="absolute inset-0 bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-full blur-2xl opacity-30 animate-pulse">
+        <!-- Top Layout: Profile + Sidebar -->
+        <div class="flex flex-col lg:flex-row gap-12 mb-16 items-start">
+            <!-- Left Column: Hero Section -->
+            <section class="flex flex-col items-center text-center lg:items-start lg:text-left lg:w-2/3">
+                <div class="relative mb-6">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-full blur-2xl opacity-30 animate-pulse">
+                    </div>
+                    <img src="https://github.com/Adiru3.png" alt="Adiru3 Avatar"
+                        class="relative w-32 h-32 md:w-36 md:h-36 rounded-full border-4 border-white/10 shadow-2xl float">
                 </div>
-                <img src="https://github.com/Adiru3.png" alt="Adiru3 Avatar"
-                    class="relative w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white/10 shadow-2xl float">
-            </div>
 
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-3 tracking-tight">
-                <span class="bg-clip-text text-transparent bg-gradient-to-r from-violet-400 via-fuchsia-400 to-sky-400">
-                    Adiru3
-                </span>
-            </h1>
-            <p id="role" class="text-violet-400 font-bold tracking-widest uppercase text-xs md:text-sm mb-4">Digital
-                Architect</p>
-            <p id="bio" class="text-gray-400 text-base md:text-lg max-w-xl leading-relaxed mx-auto">
-                Creating immersive experiences and high-performance applications through digital architecture and
-                design.
-            </p>
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-3 tracking-tight">
+                    <span
+                        class="bg-clip-text text-transparent bg-gradient-to-r from-violet-400 via-fuchsia-400 to-sky-400">
+                        Adiru3
+                    </span>
+                </h1>
+                <p id="role" class="text-violet-400 font-bold tracking-widest uppercase text-xs md:text-sm mb-4">Digital
+                    Architect</p>
+                <p id="bio" class="text-gray-400 text-base md:text-lg max-w-xl leading-relaxed">
+                    Creating immersive experiences and high-performance applications through digital architecture and
+                    design.
+                </p>
 
-            <!-- Interaction Hub -->
-            <div class="w-full space-y-10 mt-10">
-                <!-- Social Presence -->
-                <div class="flex flex-col items-center">
-                    <h3 id="socials-label"
-                        class="text-violet-400/60 font-bold uppercase text-[11px] tracking-[0.2em] mb-4">Digital
-                        Presence</h3>
-                    <div class="flex flex-wrap justify-center gap-3">
-                        <a href="https://t.me/Adiru3dev" target="_blank"
-                            class="flex items-center gap-2 px-5 py-2.5 glass-card bg-sky-900/20 hover:bg-sky-800/40 group">
-                            <i class="fab fa-telegram text-sky-400 group-hover:scale-110 transition-transform"></i>
-                            <span class="font-semibold text-sm text-sky-200">Telegram</span>
-                        </a>
-                        <a href="https://x.com/Adiru3dev" target="_blank"
-                            class="flex items-center gap-2 px-5 py-2.5 glass-card bg-zinc-900/50 hover:bg-zinc-800/80 group">
-                            <i class="fab fa-x-twitter text-white group-hover:scale-110 transition-transform"></i>
-                            <span class="font-semibold text-sm">X / Twitter</span>
-                        </a>
-                        <a href="https://www.youtube.com/@Adiru3dev" target="_blank"
-                            class="flex items-center gap-2 px-5 py-2.5 glass-card bg-red-900/20 hover:bg-red-800/40 group">
-                            <i class="fab fa-youtube text-red-500 group-hover:scale-110 transition-transform"></i>
-                            <span class="font-semibold text-sm text-red-200">YouTube</span>
-                        </a>
-                        <a href="https://github.com/Adiru3" target="_blank"
-                            class="flex items-center gap-2 px-5 py-2.5 glass-card bg-zinc-900/50 hover:bg-zinc-800/80 group">
-                            <i class="fab fa-github text-white group-hover:scale-110 transition-transform"></i>
-                            <span class="font-semibold text-sm">GitHub</span>
-                        </a>
+                <!-- Interaction Hub -->
+                <div class="w-full space-y-10 mt-10">
+                    <!-- Social Presence -->
+                    <div class="flex flex-col items-center lg:items-start">
+                        <h3 id="socials-label"
+                            class="text-violet-400/60 font-bold uppercase text-[11px] tracking-[0.2em] mb-4">Digital
+                            Presence</h3>
+                        <div class="flex flex-wrap justify-center lg:justify-start gap-3">
+                            <a href="https://t.me/Adiru3dev" target="_blank"
+                                class="flex items-center gap-2 px-5 py-2.5 glass-card bg-sky-900/20 hover:bg-sky-800/40 group">
+                                <i class="fab fa-telegram text-sky-400 group-hover:scale-110 transition-transform"></i>
+                                <span class="font-semibold text-sm text-sky-200">Telegram</span>
+                            </a>
+                            <a href="https://x.com/Adiru3dev" target="_blank"
+                                class="flex items-center gap-2 px-5 py-2.5 glass-card bg-zinc-900/50 hover:bg-zinc-800/80 group">
+                                <i class="fab fa-x-twitter text-white group-hover:scale-110 transition-transform"></i>
+                                <span class="font-semibold text-sm">X / Twitter</span>
+                            </a>
+                            <a href="https://www.youtube.com/@Adiru3dev" target="_blank"
+                                class="flex items-center gap-2 px-5 py-2.5 glass-card bg-red-900/20 hover:bg-red-800/40 group">
+                                <i class="fab fa-youtube text-red-500 group-hover:scale-110 transition-transform"></i>
+                                <span class="font-semibold text-sm text-red-200">YouTube</span>
+                            </a>
+                            <a href="https://github.com/Adiru3" target="_blank"
+                                class="flex items-center gap-2 px-5 py-2.5 glass-card bg-zinc-900/50 hover:bg-zinc-800/80 group">
+                                <i class="fab fa-github text-white group-hover:scale-110 transition-transform"></i>
+                                <span class="font-semibold text-sm">GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Support Platforms -->
+                    <div class="flex flex-col items-center lg:items-start">
+                        <h3 id="support-label"
+                            class="text-violet-400/60 font-bold uppercase text-[11px] tracking-[0.2em] mb-4">Support &
+                            Donations</h3>
+                        <div class="flex flex-wrap justify-center lg:justify-start gap-3">
+                            <a href="https://donatello.to/Adiru3" target="_blank"
+                                class="flex items-center gap-2 px-5 py-2.5 glass-card bg-orange-900/20 hover:bg-orange-800/40 group">
+                                <i
+                                    class="fas fa-hand-holding-heart text-orange-400 group-hover:scale-110 transition-transform"></i>
+                                <span class="font-semibold text-sm text-orange-200">Donatello</span>
+                            </a>
+                            <a href="https://ko-fi.com/adiru" target="_blank"
+                                class="flex items-center gap-2 px-5 py-2.5 glass-card bg-red-900/20 hover:bg-red-800/40 group">
+                                <i class="fas fa-coffee text-red-400 group-hover:scale-110 transition-transform"></i>
+                                <span class="font-semibold text-sm text-red-200">Ko-fi</span>
+                            </a>
+                            <a href="https://steamcommunity.com/tradeoffer/new/?partner=1124211419&token=2utLCl48"
+                                target="_blank"
+                                class="flex items-center gap-2 px-5 py-2.5 glass-card bg-blue-900/20 hover:bg-blue-800/40 group">
+                                <i class="fab fa-steam text-blue-400 group-hover:scale-110 transition-transform"></i>
+                                <span class="font-semibold text-sm text-blue-200">Steam Trade</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
+            </section>
 
-                <!-- Support Platforms -->
-                <div class="flex flex-col items-center">
-                    <h3 id="support-label"
-                        class="text-violet-400/60 font-bold uppercase text-[11px] tracking-[0.2em] mb-4">Support &
-                        Donations</h3>
-                    <div class="flex flex-wrap justify-center gap-3">
-                        <a href="https://donatello.to/Adiru3" target="_blank"
-                            class="flex items-center gap-2 px-5 py-2.5 glass-card bg-orange-900/20 hover:bg-orange-800/40 group">
-                            <i
-                                class="fas fa-hand-holding-heart text-orange-400 group-hover:scale-110 transition-transform"></i>
-                            <span class="font-semibold text-sm text-orange-200">Donatello</span>
-                        </a>
-                        <a href="https://ko-fi.com/adiru" target="_blank"
-                            class="flex items-center gap-2 px-5 py-2.5 glass-card bg-red-900/20 hover:bg-red-800/40 group">
-                            <i class="fas fa-coffee text-red-400 group-hover:scale-110 transition-transform"></i>
-                            <span class="font-semibold text-sm text-red-200">Ko-fi</span>
-                        </a>
-                        <a href="https://steamcommunity.com/tradeoffer/new/?partner=1124211419&token=2utLCl48"
-                            target="_blank"
-                            class="flex items-center gap-2 px-5 py-2.5 glass-card bg-blue-900/20 hover:bg-blue-800/40 group">
-                            <i class="fab fa-steam text-blue-400 group-hover:scale-110 transition-transform"></i>
-                            <span class="font-semibold text-sm text-blue-200">Steam Trade</span>
-                        </a>
+            <!-- Right Column: Sidebar Projects -->
+            <aside class="w-full lg:w-1/3">
+                <h3 id="projects-label"
+                    class="text-violet-400/60 font-bold uppercase text-[11px] tracking-[0.2em] mb-6 text-center lg:text-left">
+                    Projects Needing Support</h3>
+                <div class="space-y-6">
+                    <!-- Project Card -->
+                    <div class="glass-card overflow-hidden group">
+                        <div class="aspect-video overflow-hidden">
+                            <img src="projects/amazearb.jpg" alt="AmazeArb"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                onerror="this.src='https://github.com/Adiru3.png'; this.style.filter='hue-rotate(90deg)'">
+                        </div>
+                        <div class="p-6">
+                            <h4 id="amazearb-title" class="text-xl font-bold mb-3 text-white">🚀 AmazeArb</h4>
+                            <p id="amazearb-desc" class="text-gray-400 text-sm mb-6 leading-relaxed"></p>
+                            <div class="flex flex-col gap-3">
+                                <a href="https://t.me/AmazeArbbot" target="_blank"
+                                    class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 font-bold text-sm transition-colors">
+                                    <i class="fab fa-telegram"></i>
+                                    Launch Bot
+                                </a>
+                                <button onclick="openModal('amazearb')" id="btn-read-more"
+                                    class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl border border-white/10 hover:bg-white/5 font-bold text-sm transition-colors">
+                                    <i class="fas fa-plus"></i>
+                                    Read More
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </aside>
+        </div>
 
         <!-- Donation Grid -->
         <section class="glass-card p-6 md:p-10 mb-12 relative overflow-hidden">
@@ -575,63 +650,147 @@
                 bio: "Creating immersive experiences and high-performance applications through digital architecture and design.",
                 socialsLabel: "Stay Connected",
                 supportLabel: "Support My Platforms",
+                projectsLabel: "My projects requiring your support",
                 donateTitle: "Crypto Donations",
+                amazearbTitle: "🚀 AmazeArb: Ultimate Crypto-Arbitrage Scanner",
+                amazearbDesc: "AmazeArb is a professional tool for finding and implementing high-yield trading connections in real-time.",
                 footerText: "© 2026 Adiru3. All Rights Reserved.",
-                copied: "Copied to clipboard!"
+                copied: "Copied to clipboard!",
+                btnReadMore: "Read More",
+                modalClose: "Close",
+                amazearbFullTitle: "🚀 AmazeArb: Ultimate Crypto-Arbitrage Scanner",
+                amazearbFullDesc: "AmazeArb is a professional tool for finding and implementing high-yield trading connections in real-time.",
+                amazearbAdvantagesTitle: "🔥 Main Advantages:",
+                amazearbAdv1: "<b>Global Coverage:</b> Monitoring 1700+ pairs on 21+ exchanges (Bybit, KuCoin, Solana DEX, etc.).",
+                amazearbAdv2: "<b>Maximum Profit:</b> Search for spreads up to 500%+ with execution in milliseconds.",
+                amazearbAdv3: "<b>All Types of Arbitrage:</b> P2P + Spot, Cross-Chain, Funding, Stables, and LST/LRT tokens.",
+                amazearbAdv4: "<b>Bonus:</b> Free AirDrops section for all users."
             },
             ru: {
                 role: "Цифровой Архитектор",
                 bio: "Создание иммерсивных продуктов и высокопроизводительных приложений через цифровую архитектуру и дизайн.",
                 socialsLabel: "Оставайтесь на связи",
                 supportLabel: "Поддержать мои платформы",
+                projectsLabel: "Мои проекты, требующие вашей поддержки",
                 donateTitle: "Крипто Пожертвования",
+                amazearbTitle: "🚀 AmazeArb: Ультимативный Сканер Крипто-Арбитража",
+                amazearbDesc: "AmazeArb — это профессиональный инструмент для поиска и реализации торговых связок с высокой доходностью в реальном времени.",
                 footerText: "© 2026 Adiru3. Все права защищены.",
-                copied: "Скопировано в буфер!"
+                copied: "Скопировано в буфер!",
+                btnReadMore: "Читать детальнее",
+                modalClose: "Закрыть",
+                amazearbFullTitle: "🚀 AmazeArb: Ультимативный Сканер Крипто-Арбитража",
+                amazearbFullDesc: "AmazeArb — это профессиональный инструмент для поиска и реализации торговых связок с высокой доходностью в реальном времени.",
+                amazearbAdvantagesTitle: "🔥 Главные преимущества:",
+                amazearbAdv1: "<b>Глобальный охват:</b> Мониторинг 1700+ пар на 21+ бирже (Bybit, KuCoin, Solana DEX и др.).",
+                amazearbAdv2: "<b>Максимальная прибыль:</b> Поиск спредов до 500%+ с исполнением за миллисекунды.",
+                amazearbAdv3: "<b>Все виды арбитража:</b> P2P + Spot, Cross-Chain, Фандинг, Стейблкоины и LST/LRT токены.",
+                amazearbAdv4: "<b>Бонус:</b> Раздел с бесплатными AirDrops для всех пользователей."
             },
             uk: {
                 role: "Цифровий Архітектор",
                 bio: "Створення імерсивних продуктів та високопродуктивних додатків через цифрову архітектуру та дизайн.",
                 socialsLabel: "Залишайтеся на зв'язку",
                 supportLabel: "Підтримати мої платформи",
+                projectsLabel: "Мої проєкти, що потребують вашої підтримки",
                 donateTitle: "Крипто Пожертвування",
+                amazearbTitle: "🚀 AmazeArb: Ультимативний Сканер Крипто-Арбітражу",
+                amazearbDesc: "AmazeArb — це професійний інструмент для пошуку та реалізації торгових зв'язок з високою прибутковістю в реальному часі.",
                 footerText: "© 2026 Adiru3. Всі права захищені.",
-                copied: "Скопійовано!"
+                copied: "Скопійовано!",
+                btnReadMore: "Читати детальніше",
+                modalClose: "Закрити",
+                amazearbFullTitle: "🚀 AmazeArb: Ультимативний Сканер Крипто-Арбітражу",
+                amazearbFullDesc: "AmazeArb — це професійний інструмент для пошуку та реалізації торгових зв'язок з високою прибутковістю.",
+                amazearbAdvantagesTitle: "🔥 Головні переваги:",
+                amazearbAdv1: "<b>Глобальне охоплення:</b> Мониторинг 1700+ пар на 21+ біржі.",
+                amazearbAdv2: "<b>Максимальний прибуток:</b> Пошук спредів до 500%+.",
+                amazearbAdv3: "<b>Всі види арбітражу:</b> P2P + Spot, Cross-Chain, Фандинг.",
+                amazearbAdv4: "<b>Бонус:</b> Розділ з безкоштовними AirDrops."
             },
             tr: {
                 role: "Dijital Mimar",
                 bio: "Dijital mimari ve tasarım yoluyla sürükleyici deneyimler ve yüksek performanslı uygulamalar oluşturma.",
                 socialsLabel: "Bağlantıda Kalın",
                 supportLabel: "Platformlarımı Destekleyin",
+                projectsLabel: "Desteğinize ihtiyaç duyan projelerim",
                 donateTitle: "Kripto Bağışlar",
+                amazearbTitle: "🚀 AmazeArb: Nihai Kripto Arbitraj Tarayıcısı",
+                amazearbDesc: "AmazeArb, gerçek zamanlı olarak yüksek getirili ticaret bağlantılarını bulmak ve uygulamak için profesyonel bir araçtır.",
                 footerText: "© 2026 Adiru3. Tüm Hakları Saklıdır.",
-                copied: "Panoya kopyalandı!"
+                copied: "Panoya kopyalandı!",
+                btnReadMore: "Daha Fazla Oku",
+                modalClose: "Kapat",
+                amazearbFullTitle: "🚀 AmazeArb: Kripto-Arbitraj Tarayıcısı",
+                amazearbFullDesc: "AmazeArb, karlı ticaret bağlantılarını gerçek zamanlı bulmak için kullanılan profesyonel bir araçtır.",
+                amazearbAdvantagesTitle: "🔥 Ana Avantajlar:",
+                amazearbAdv1: "<b>Küresel Kapsam:</b> 21+ borsada 1700+ parite.",
+                amazearbAdv2: "<b>Maksimum Kar:</b> %500+'e varan spreadler.",
+                amazearbAdv3: "<b>Her Türlü Arbitraj:</b> P2P, Spot, Çapraz Zincir.",
+                amazearbAdv4: "<b>Bonus:</b> Tüm kullanıcılar için ücretsiz AirDrops."
             },
             zh: {
                 role: "数字架构师",
                 bio: "通过数字架构和设计创造身临其境的体验和高性能应用程序。",
                 socialsLabel: "保持联系",
                 supportLabel: "支持我的平台",
+                projectsLabel: "我的项目需要您的支持",
                 donateTitle: "加密货币捐赠",
+                amazearbTitle: "🚀 AmazeArb：终极加密货币套利扫描仪",
+                amazearbDesc: "AmazeArb 是一款专业工具，用于实时发现和实施高收益交易连接。",
                 footerText: "© 2026 Adiru3. 版权所有。",
-                copied: "已复制到剪贴板！"
+                copied: "已复制到剪贴板！",
+                btnReadMore: "阅读更多",
+                modalClose: "关闭",
+                amazearbFullTitle: "🚀 AmazeArb: 终极加密货币套利扫描仪",
+                amazearbFullDesc: "AmazeArb 是用于实时发现和实施高收益交易连接的专业工具。",
+                amazearbAdvantagesTitle: "🔥 主要优势：",
+                amazearbAdv1: "<b>全球覆盖：</b> 监控 21+ 交易所的 1700+ 对。",
+                amazearbAdv2: "<b>最大利润：</b> 搜索高达 500%+ 的点差。",
+                amazearbAdv3: "<b>各种套利：</b> P2P、现货、跨链。",
+                amazearbAdv4: "<b>奖励：</b> 所有用户的免费 AirDrops 部分。"
             },
             ja: {
                 role: "デジタルアーキテクト",
                 bio: "デジタルアーキテクチャとデザインを通じて、没入型の体験と高性能なアプリケーションを作成します。",
                 socialsLabel: "つながりを保つ",
                 supportLabel: "私のプラットフォームをサポートする",
+                projectsLabel: "あなたのサポートを必要とする私のプロジェクト",
                 donateTitle: "暗号資産寄付",
+                amazearbTitle: "🚀 AmazeArb：究極の仮想通貨裁定取引スキャナー",
+                amazearbDesc: "AmazeArbは、高収益の取引接続をリアルタイムで見つけて実行するためのプロフェッショナルなツールです。",
                 footerText: "© 2026 Adiru3. 全著作権所有。",
-                copied: "クリップボードにコピーされました！"
+                copied: "クリップボードにコピーされました！",
+                btnReadMore: "詳細を読む",
+                modalClose: "閉じる",
+                amazearbFullTitle: "🚀 AmazeArb: 究極の仮想通貨裁定取引スキャナー",
+                amazearbFullDesc: "AmazeArbは、リアルタイムで利益のある取引を見つけるツールです。",
+                amazearbAdvantagesTitle: "🔥 主な利点:",
+                amazearbAdv1: "<b>グローバルカバー：</b> 21以上の取引所で1700以上のペアを監視。",
+                amazearbAdv2: "<b>最大利益：</b> 500％以上のスプレッドを検索。",
+                amazearbAdv3: "<b>すべてのアービトラージ：</b> P2P、スポット、クロスチェーン。",
+                amazearbAdv4: "<b>ボーナス：</b> すべてのユーザー向けの無料AirDrops。"
             },
             ar: {
                 role: "معماري رقمي",
                 bio: "إنشاء تجارب غامرة وتطبيقات عالية الأداء من خلال الهندسة الرقمية والتصميم.",
-                socialsLabel: "ابق على تواصل",
+                socialsLabel: "ابق на تواصل",
                 supportLabel: "دعم منصاتي",
+                projectsLabel: "مشاريعي التي تتطلب دعمكم",
                 donateTitle: "تبرعات العملات الرقمية",
+                amazearbTitle: "🚀 AmazeArb: ماسح موازنة العملات المشفرة النهائي",
+                amazearbDesc: "AmazeArb هو أداة احترافية للعثور على صفقات تجارية عالية العائد وتنفيذها في الوقت الفعلي.",
                 footerText: "© 2026 Adiru3. جميع الحقوق محفوظة.",
-                copied: "تم النسخ إلى الحافظة!"
+                copied: "تم النسخ إلى الحافظة!",
+                btnReadMore: "اقرأ أكثر",
+                modalClose: "إغلاق",
+                amazearbFullTitle: "🚀 AmazeArb: ماسح تداول العملات الرقمية النهائي",
+                amazearbFullDesc: "AmazeArb هي أداة احترافية للعثور على صفقات مربحة في الوقت الفعلي.",
+                amazearbAdvantagesTitle: "🔥 المزايا الرئيسية:",
+                amazearbAdv1: "<b>تغطية عالمية:</b> مراقبة 1700+ زوج على 21+ بورصة.",
+                amazearbAdv2: "<b>ربح أقصى:</b> انتشار يصل إلى 500%+.",
+                amazearbAdv3: "<b>كل أنواع التحكيم:</b> P2P ، Spot ، Cross-Chain.",
+                amazearbAdv4: "<b>مكافأة:</b> قسم AirDrops مجاني لجميع المستخدمين."
             }
         };
 
@@ -640,6 +799,21 @@
             document.getElementById('bio').innerText = translations[lang].bio;
             document.getElementById('socials-label').innerText = translations[lang].socialsLabel;
             document.getElementById('support-label').innerText = translations[lang].supportLabel;
+            document.getElementById('projects-label').innerText = translations[lang].projectsLabel;
+            document.getElementById('amazearb-title').innerText = translations[lang].amazearbTitle;
+            if (document.getElementById('amazearb-desc')) document.getElementById('amazearb-desc').innerText = translations[lang].amazearbDesc;
+            if (document.getElementById('btn-read-more')) document.getElementById('btn-read-more').innerHTML = `<i class="fas fa-plus"></i> ${translations[lang].btnReadMore}`;
+            if (document.getElementById('modal-close-btn')) document.getElementById('modal-close-btn').innerText = translations[lang].modalClose;
+
+            // Modal Content translations
+            document.getElementById('modal-title').innerText = translations[lang].amazearbFullTitle;
+            document.getElementById('modal-desc').innerText = translations[lang].amazearbFullDesc;
+            document.getElementById('modal-adv-title').innerText = translations[lang].amazearbAdvantagesTitle;
+            document.getElementById('adv1').innerHTML = translations[lang].amazearbAdv1;
+            document.getElementById('adv2').innerHTML = translations[lang].amazearbAdv2;
+            document.getElementById('adv3').innerHTML = translations[lang].amazearbAdv3;
+            document.getElementById('adv4').innerHTML = translations[lang].amazearbAdv4;
+
             document.getElementById('donate-title').innerHTML = `<i class="fas fa-wallet text-yellow-500"></i> ${translations[lang].donateTitle}`;
             document.getElementById('footer-text').innerText = translations[lang].footerText;
             document.getElementById('toast-msg').innerText = translations[lang].copied;
@@ -667,7 +841,80 @@
             document.getElementById('langSwitcher').value = shortLang;
             setLang(shortLang);
         }
+
+        // Modal Logic
+        function openModal(projectId) {
+            const modal = document.getElementById('projectModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('projectModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close on escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
     </script>
+
+    <!-- Modal HTML -->
+    <div id="projectModal" class="modal">
+        <div class="modal-overlay" onclick="closeModal()"></div>
+        <div class="modal-content">
+            <div class="modal-close" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </div>
+
+            <h2 id="modal-title" class="text-2xl md:text-3xl font-extrabold mb-6 text-white text-center">🚀 AmazeArb
+            </h2>
+
+            <p id="modal-desc" class="text-gray-300 leading-relaxed mb-8 text-center md:text-left">
+                AmazeArb — это профессиональный инструмент для поиска и реализации торговых связок с высокой
+                доходностью в реальном времени.
+            </p>
+
+            <div class="space-y-4">
+                <h3 id="modal-adv-title" class="text-xl font-bold text-violet-400 mb-4">🔥 Главные преимущества:</h3>
+
+                <div class="advantage-item">
+                    <span class="advantage-icon">🌍</span>
+                    <p id="adv1" class="text-gray-300 text-sm md:text-base"><b>Глобальный охват:</b> Мониторинг 1700+
+                        пар
+                        на 21+ бирже (Bybit, KuCoin, Solana DEX и др.).</p>
+                </div>
+
+                <div class="advantage-item">
+                    <span class="advantage-icon">💸</span>
+                    <p id="adv2" class="text-gray-300 text-sm md:text-base"><b>Максимальная прибыль:</b> Поиск спредов
+                        до
+                        500%+ с исполнением за миллисекунды.</p>
+                </div>
+
+                <div class="advantage-item">
+                    <span class="advantage-icon">⛓️</span>
+                    <p id="adv3" class="text-gray-300 text-sm md:text-base"><b>Все виды арбитража:</b> P2P + Spot,
+                        Cross-Chain, Фандинг, Стейблкоины и LST/LRT токены.</p>
+                </div>
+
+                <div class="advantage-item">
+                    <span class="advantage-icon">🎁</span>
+                    <p id="adv4" class="text-gray-300 text-sm md:text-base"><b>Бонус:</b> Раздел с бесплатными AirDrops
+                        для всех пользователей.</p>
+                </div>
+            </div>
+
+            <div class="mt-10 flex justify-center">
+                <button onclick="closeModal()" id="modal-close-btn"
+                    class="px-8 py-3 rounded-full border border-white/10 hover:bg-white/5 font-bold transition-all">
+                    Закрыть
+                </button>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
