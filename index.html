@@ -1,30 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adiru3 | Developer Profile</title>
+
+    <!-- Premium SEO -->
+    <title>Adiru3 | Digital Architect & Crypto Hub</title>
+    <meta name="description"
+        content="Official profile of Adiru3, Digital Architect. Developer, content creator, and crypto enthusiast. Support my work through various cryptocurrency donations.">
+    <meta name="keywords"
+        content="Adiru3, amazingb01, Digital Architect, developer, crypto donation, USDT TON, ETH Arbitrum, ETH Base, Dogecoin, Monero, XMR, Polygon, BTC, SOL, TRC20">
+    <meta name="author" content="Adiru3">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adiru3.github.io/">
+    <meta property="og:title" content="Adiru3 | Digital Architect Profile">
+    <meta property="og:description"
+        content="Digital Architect, Content Creator, and Crypto Hub. High-quality software and media.">
+    <meta property="og:image" content="https://github.com/Adiru3.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://adiru3.github.io/">
+    <meta property="twitter:title" content="Adiru3 | Digital Architect Profile">
+    <meta property="twitter:description"
+        content="Digital Architect, Content Creator, and Crypto Hub. High-quality software and media.">
+    <meta property="twitter:image" content="https://github.com/Adiru3.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Scripts & Icons -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        body { background-color: #0d1117; color: #c9d1d9; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
-        .github-card { background-color: #161b22; border: 1px solid #30363d; border-radius: 6px; }
-        .btn-copy { transition: all 0.2s; }
-        .btn-copy:active { transform: scale(0.95); }
-        .lang-select { background: #21262d; border: 1px solid #30363d; color: #c9d1d9; }
+        :root {
+            --primary: #8b5cf6;
+            --secondary: #ec4899;
+            --accent: #06b6d4;
+            --bg: #030712;
+            --glass: rgba(17, 24, 39, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #f3f4f6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Animated Mesh Background */
+        .mesh-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+                radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
+                radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%),
+                radial-gradient(at 50% 50%, hsla(262, 47%, 16%, 1) 0, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+                radial-gradient(at 80% 100%, hsla(242, 47%, 10%, 1) 0, transparent 50%),
+                radial-gradient(at 0% 50%, hsla(242, 47%, 10%, 1) 0, transparent 50%);
+            filter: blur(80px);
+            opacity: 0.8;
+            animation: mesh-flow 20s ease infinite alternate;
+        }
+
+        @keyframes mesh-flow {
+            0% {
+                transform: scale(1) translate(0, 0);
+            }
+
+            50% {
+                transform: scale(1.1) translate(-2%, 2%);
+            }
+
+            100% {
+                transform: scale(1) translate(0, 0);
+            }
+        }
+
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .crypto-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .crypto-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--primary);
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .lang-select {
+            background: var(--glass);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            appearance: none;
+            outline: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        /* Float animation */
+        .float {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #374151;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4b5563;
+        }
     </style>
 </head>
-<body class="p-4 md:p-10">
 
-    <div class="max-w-3xl mx-auto">
-        <div class="flex flex-col items-center mb-8">
-            <img src="https://github.com/Adiru3.png" alt="Avatar" class="w-32 h-32 rounded-full border-4 border-[#30363d] mb-4">
-            <h1 class="text-3xl font-bold text-white">Adiru3 (amazingb01)</h1>
-            <p class="text-gray-400 text-lg">Developer & Content Creator</p>
-            
-            <div class="mt-4 flex items-center gap-2">
-                <i class="fas fa-language text-xl"></i>
-                <select id="langSwitcher" class="lang-select rounded px-3 py-1 outline-none">
+<body class="antialiased">
+    <div class="mesh-bg"></div>
+
+    <div class="max-w-4xl mx-auto px-4 py-8 md:py-16">
+        <!-- Language Switcher -->
+        <div class="flex justify-end mb-6">
+            <div class="relative">
+                <select id="langSwitcher" class="lang-select" onchange="setLang(this.value)">
                     <option value="en">English</option>
                     <option value="ru">Русский</option>
                     <option value="uk">Українська</option>
@@ -33,111 +197,477 @@
                     <option value="ja">日本語</option>
                     <option value="ar">العربية</option>
                 </select>
+                <div class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none opacity-50">
+                    <i class="fas fa-chevron-down text-xs"></i>
+                </div>
             </div>
         </div>
 
-        <div class="flex flex-wrap justify-center gap-3 mb-10">
-            <a href="https://github.com/Adiru3" target="_blank"><img src="https://img.shields.io/badge/GitHub-Adiru3-181717?style=for-the-badge&logo=github" alt="GitHub"></a>
-            <a href="https://www.youtube.com/@adiruaim" target="_blank"><img src="https://img.shields.io/badge/YouTube-@adiruaim-FF0000?style=for-the-badge&logo=youtube" alt="YouTube"></a>
-            <a href="https://www.tiktok.com/@adiruhs" target="_blank"><img src="https://img.shields.io/badge/TikTok-@adiruhs-000000?style=for-the-badge&logo=tiktok" alt="TikTok"></a>
-            <a href="https://donatello.to/Adiru3" target="_blank"><img src="https://img.shields.io/badge/Support-Donatello-orange?style=for-the-badge" alt="Donatello"></a>
-            <a href="https://ko-fi.com/adiru" target="_blank"><img src="https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white" alt="Ko-fi"></a>
-            <a href="https://steamcommunity.com/tradeoffer/new/?partner=1124211419&token=2utLCl48" target="_blank"><img src="https://img.shields.io/badge/Steam-Trade-blue?style=for-the-badge&logo=steam" alt="Steam"></a>
-        </div>
+        <!-- Hero Section -->
+        <section class="flex flex-col items-center text-center mb-12">
+            <div class="relative mb-6">
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-full blur-2xl opacity-30 animate-pulse">
+                </div>
+                <img src="https://github.com/Adiru3.png" alt="Adiru3 Avatar"
+                    class="relative w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white/10 shadow-2xl float">
+            </div>
 
-        <div class="github-card p-6">
-            <h2 class="text-xl font-semibold mb-4 border-b border-[#30363d] pb-2 text-white">
-                <i class="fas fa-wallet mr-2 text-yellow-500"></i> Donate Crypto
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-3 tracking-tight">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-violet-400 via-fuchsia-400 to-sky-400">
+                    Adiru3
+                </span>
+            </h1>
+            <p id="role" class="text-violet-400 font-bold tracking-widest uppercase text-xs md:text-sm mb-4">Digital
+                Architect</p>
+            <p id="bio" class="text-gray-400 text-base md:text-lg max-w-xl leading-relaxed mx-auto">
+                Creating immersive experiences and high-performance applications through digital architecture and
+                design.
+            </p>
+
+            <!-- Interaction Hub -->
+            <div class="w-full space-y-10 mt-10">
+                <!-- Social Presence -->
+                <div class="flex flex-col items-center">
+                    <h3 id="socials-label"
+                        class="text-violet-400/60 font-bold uppercase text-[11px] tracking-[0.2em] mb-4">Digital
+                        Presence</h3>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <a href="https://t.me/Adiru3dev" target="_blank"
+                            class="flex items-center gap-2 px-5 py-2.5 glass-card bg-sky-900/20 hover:bg-sky-800/40 group">
+                            <i class="fab fa-telegram text-sky-400 group-hover:scale-110 transition-transform"></i>
+                            <span class="font-semibold text-sm text-sky-200">Telegram</span>
+                        </a>
+                        <a href="https://x.com/Adiru3dev" target="_blank"
+                            class="flex items-center gap-2 px-5 py-2.5 glass-card bg-zinc-900/50 hover:bg-zinc-800/80 group">
+                            <i class="fab fa-x-twitter text-white group-hover:scale-110 transition-transform"></i>
+                            <span class="font-semibold text-sm">X / Twitter</span>
+                        </a>
+                        <a href="https://www.youtube.com/@Adiru3dev" target="_blank"
+                            class="flex items-center gap-2 px-5 py-2.5 glass-card bg-red-900/20 hover:bg-red-800/40 group">
+                            <i class="fab fa-youtube text-red-500 group-hover:scale-110 transition-transform"></i>
+                            <span class="font-semibold text-sm text-red-200">YouTube</span>
+                        </a>
+                        <a href="https://github.com/Adiru3" target="_blank"
+                            class="flex items-center gap-2 px-5 py-2.5 glass-card bg-zinc-900/50 hover:bg-zinc-800/80 group">
+                            <i class="fab fa-github text-white group-hover:scale-110 transition-transform"></i>
+                            <span class="font-semibold text-sm">GitHub</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Support Platforms -->
+                <div class="flex flex-col items-center">
+                    <h3 id="support-label"
+                        class="text-violet-400/60 font-bold uppercase text-[11px] tracking-[0.2em] mb-4">Support &
+                        Donations</h3>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <a href="https://donatello.to/Adiru3" target="_blank"
+                            class="flex items-center gap-2 px-5 py-2.5 glass-card bg-orange-900/20 hover:bg-orange-800/40 group">
+                            <i
+                                class="fas fa-hand-holding-heart text-orange-400 group-hover:scale-110 transition-transform"></i>
+                            <span class="font-semibold text-sm text-orange-200">Donatello</span>
+                        </a>
+                        <a href="https://ko-fi.com/adiru" target="_blank"
+                            class="flex items-center gap-2 px-5 py-2.5 glass-card bg-red-900/20 hover:bg-red-800/40 group">
+                            <i class="fas fa-coffee text-red-400 group-hover:scale-110 transition-transform"></i>
+                            <span class="font-semibold text-sm text-red-200">Ko-fi</span>
+                        </a>
+                        <a href="https://steamcommunity.com/tradeoffer/new/?partner=1124211419&token=2utLCl48"
+                            target="_blank"
+                            class="flex items-center gap-2 px-5 py-2.5 glass-card bg-blue-900/20 hover:bg-blue-800/40 group">
+                            <i class="fab fa-steam text-blue-400 group-hover:scale-110 transition-transform"></i>
+                            <span class="font-semibold text-sm text-blue-200">Steam Trade</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Donation Grid -->
+        <section class="glass-card p-6 md:p-10 mb-12 relative overflow-hidden">
+            <h2 id="donate-title" class="text-2xl md:text-3xl font-bold mb-8 flex items-center gap-3">
+                <i class="fas fa-wallet text-yellow-500"></i>
+                Crypto Donations
             </h2>
-            
-            <div class="space-y-4">
-                <div class="flex flex-col">
-                    <span class="text-sm text-gray-400 mb-1">USDT (TRC20)</span>
-                    <div class="flex items-center gap-2">
-                        <input type="text" readonly value="TNgFjGzbGxztHDcSHx9DEPmQLxj2dWzozC" class="bg-[#0d1117] border border-[#30363d] rounded p-2 flex-grow text-sm font-mono">
-                        <button onclick="copyToClipboard('TNgFjGzbGxztHDcSHx9DEPmQLxj2dWzozC', this)" class="btn-copy bg-[#21262d] hover:bg-[#30363d] border border-[#30363d] px-4 py-2 rounded">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                <!-- USDT (TRC20) - Original -->
+                <div class="crypto-item p-4 rounded-xl flex flex-col gap-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <img src="https://cryptologos.cc/logos/tether-usdt-logo.svg?v=025" width="24" alt="USDT">
+                            <span class="font-bold">USDT (TRC20)</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 bg-black/40 p-2.5 rounded-lg border border-white/5">
+                        <code
+                            class="mono text-xs text-gray-400 truncate flex-grow">TNgFjGzbGxztHDcSHx9DEPmQLxj2dWzozC</code>
+                        <button onclick="copyToClipboard('TNgFjGzbGxztHDcSHx9DEPmQLxj2dWzozC', this)"
+                            class="text-gray-400 hover:text-white transition-colors p-2">
                             <i class="far fa-copy"></i>
                         </button>
                     </div>
                 </div>
 
-                <div class="flex flex-col">
-                    <span class="text-sm text-gray-400 mb-1">USDT (TON)</span>
-                    <div class="flex items-center gap-2">
-                        <input type="text" readonly value="UQC5fsX4zON_FgW4I6iVrxVDtsVwrcOmqbjsYA4TrQh3aOvj" class="bg-[#0d1117] border border-[#30363d] rounded p-2 flex-grow text-sm font-mono">
-                        <button onclick="copyToClipboard('UQC5fsX4zON_FgW4I6iVrxVDtsVwrcOmqbjsYA4TrQh3aOvj', this)" class="btn-copy bg-[#21262d] hover:bg-[#30363d] border border-[#30363d] px-4 py-2 rounded">
+                <!-- USDT (TON) - New -->
+                <div class="crypto-item p-4 rounded-xl flex flex-col gap-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <img src="https://cryptologos.cc/logos/tether-usdt-logo.svg?v=025" width="24" alt="USDT">
+                            <span class="font-bold">USDT (TON)</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 bg-black/40 p-2.5 rounded-lg border border-white/5">
+                        <code
+                            class="mono text-xs text-gray-400 truncate flex-grow">UQC5fsX4zON_FgW4I6iVrxVDtsVwrcOmqbjsYA4TrQh3aOvj</code>
+                        <button onclick="copyToClipboard('UQC5fsX4zON_FgW4I6iVrxVDtsVwrcOmqbjsYA4TrQh3aOvj', this)"
+                            class="text-gray-400 hover:text-white transition-colors p-2">
                             <i class="far fa-copy"></i>
                         </button>
                     </div>
                 </div>
 
-                <div class="flex flex-col">
-                    <span class="text-sm text-gray-400 mb-1">ETH (ERC20)</span>
+                <!-- BTC - Original -->
+                <div class="crypto-item p-4 rounded-xl flex flex-col gap-3">
                     <div class="flex items-center gap-2">
-                        <input type="text" readonly value="0xf35Afdf42C8bf1C3bF08862f573c2358461e697f" class="bg-[#0d1117] border border-[#30363d] rounded p-2 flex-grow text-sm font-mono">
-                        <button onclick="copyToClipboard('0xf35Afdf42C8bf1C3bF08862f573c2358461e697f', this)" class="btn-copy bg-[#21262d] hover:bg-[#30363d] border border-[#30363d] px-4 py-2 rounded">
+                        <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.svg?v=025" width="24" alt="BTC">
+                        <span class="font-bold">Bitcoin (BTC)</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-black/40 p-2.5 rounded-lg border border-white/5">
+                        <code
+                            class="mono text-xs text-gray-400 truncate flex-grow">bc1qflvetccw7vu59mq074hnvf03j02sjjf9t5dphl</code>
+                        <button onclick="copyToClipboard('bc1qflvetccw7vu59mq074hnvf03j02sjjf9t5dphl', this)"
+                            class="text-gray-400 hover:text-white transition-colors p-2">
                             <i class="far fa-copy"></i>
                         </button>
                     </div>
                 </div>
 
-                <div class="flex flex-col">
-                    <span class="text-sm text-gray-400 mb-1">Bitcoin (BTC)</span>
+                <!-- LTC - New -->
+                <div class="crypto-item p-4 rounded-xl flex flex-col gap-3">
                     <div class="flex items-center gap-2">
-                        <input type="text" readonly value="bc1qflvetccw7vu59mq074hnvf03j02sjjf9t5dphl" class="bg-[#0d1117] border border-[#30363d] rounded p-2 flex-grow text-sm font-mono">
-                        <button onclick="copyToClipboard('bc1qflvetccw7vu59mq074hnvf03j02sjjf9t5dphl', this)" class="btn-copy bg-[#21262d] hover:bg-[#30363d] border border-[#30363d] px-4 py-2 rounded">
+                        <img src="https://cryptologos.cc/logos/litecoin-ltc-logo.svg?v=025" width="24" alt="LTC">
+                        <span class="font-bold">Litecoin (LTC)</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-black/40 p-2.5 rounded-lg border border-white/5">
+                        <code
+                            class="mono text-xs text-gray-400 truncate flex-grow">ltc1q558lygywuj2g8sn8487003ecxlvrgw38rx48hs</code>
+                        <button onclick="copyToClipboard('ltc1q558lygywuj2g8sn8487003ecxlvrgw38rx48hs', this)"
+                            class="text-gray-400 hover:text-white transition-colors p-2">
                             <i class="far fa-copy"></i>
                         </button>
                     </div>
                 </div>
 
-                <div class="flex flex-col">
-                    <span class="text-sm text-gray-400 mb-1">Solana (SOL)</span>
+                <!-- ETH (ERC20) - Original -->
+                <div class="crypto-item p-4 rounded-xl flex flex-col gap-3">
                     <div class="flex items-center gap-2">
-                        <input type="text" readonly value="5r2H3R2wXmA1JimpCypmoWLh8eGmdZA6VWjuit3AuBkq" class="bg-[#0d1117] border border-[#30363d] rounded p-2 flex-grow text-sm font-mono">
-                        <button onclick="copyToClipboard('5r2H3R2wXmA1JimpCypmoWLh8eGmdZA6VWjuit3AuBkq', this)" class="btn-copy bg-[#21262d] hover:bg-[#30363d] border border-[#30363d] px-4 py-2 rounded">
+                        <img src="https://cryptologos.cc/logos/ethereum-eth-logo.svg?v=025" width="24" alt="ETH">
+                        <span class="font-bold">ETH (ERC20)</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-black/40 p-2.5 rounded-lg border border-white/5">
+                        <code
+                            class="mono text-xs text-gray-400 truncate flex-grow">0xf35Afdf42C8bf1C3bF08862f573c2358461e697f</code>
+                        <button onclick="copyToClipboard('0xf35Afdf42C8bf1C3bF08862f573c2358461e697f', this)"
+                            class="text-gray-400 hover:text-white transition-colors p-2">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ETH (Arbitrum) - New -->
+                <div class="crypto-item p-4 rounded-xl flex flex-col gap-3">
+                    <div class="flex items-center gap-2">
+                        <img src="https://cryptologos.cc/logos/ethereum-eth-logo.svg?v=025" width="24" alt="ETH">
+                        <span class="font-bold">ETH (Arbitrum)</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-black/40 p-2.5 rounded-lg border border-white/5">
+                        <code
+                            class="mono text-xs text-gray-400 truncate flex-grow">0xb2Af97fB9D8bD0dA95ACDA21F694Fe43EACB15c1</code>
+                        <button onclick="copyToClipboard('0xb2Af97fB9D8bD0dA95ACDA21F694Fe43EACB15c1', this)"
+                            class="text-gray-400 hover:text-white transition-colors p-2">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ETH Base - NEW -->
+                <div class="crypto-item p-4 rounded-xl flex flex-col gap-3">
+                    <div class="flex items-center gap-2">
+                        <img src="https://cryptologos.cc/logos/ethereum-eth-logo.svg?v=025" width="24" alt="ETH">
+                        <span class="font-bold">ETH Base</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-black/40 p-2.5 rounded-lg border border-white/5">
+                        <code
+                            class="mono text-xs text-gray-400 truncate flex-grow">0xb2Af97fB9D8bD0dA95ACDA21F694Fe43EACB15c1</code>
+                        <button onclick="copyToClipboard('0xb2Af97fB9D8bD0dA95ACDA21F694Fe43EACB15c1', this)"
+                            class="text-gray-400 hover:text-white transition-colors p-2">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- USDC Base - NEW -->
+                <div class="crypto-item p-4 rounded-xl flex flex-col gap-3">
+                    <div class="flex items-center gap-2">
+                        <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=025" width="24" alt="USDC">
+                        <span class="font-bold">USDC Base</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-black/40 p-2.5 rounded-lg border border-white/5">
+                        <code
+                            class="mono text-xs text-gray-400 truncate flex-grow">0xb2Af97fB9D8bD0dA95ACDA21F694Fe43EACB15c1</code>
+                        <button onclick="copyToClipboard('0xb2Af97fB9D8bD0dA95ACDA21F694Fe43EACB15c1', this)"
+                            class="text-gray-400 hover:text-white transition-colors p-2">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- USDC Solana - NEW -->
+                <div class="crypto-item p-4 rounded-xl flex flex-col gap-3">
+                    <div class="flex items-center gap-2">
+                        <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=025" width="24" alt="USDC">
+                        <span class="font-bold">USDC Solana</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-black/40 p-2.5 rounded-lg border border-white/5">
+                        <code
+                            class="mono text-xs text-gray-400 truncate flex-grow">EZWr8AiRQ81MsEYTcQcC2fMgkZ51WWws9tQb1cqTBh9Z</code>
+                        <button onclick="copyToClipboard('EZWr8AiRQ81MsEYTcQcC2fMgkZ51WWws9tQb1cqTBh9Z', this)"
+                            class="text-gray-400 hover:text-white transition-colors p-2">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- USDC Polygon - NEW -->
+                <div class="crypto-item p-4 rounded-xl flex flex-col gap-3">
+                    <div class="flex items-center gap-2">
+                        <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=025" width="24" alt="USDC">
+                        <span class="font-bold">USDC Polygon</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-black/40 p-2.5 rounded-lg border border-white/5">
+                        <code
+                            class="mono text-xs text-gray-400 truncate flex-grow">0xb2Af97fB9D8bD0dA95ACDA21F694Fe43EACB15c1</code>
+                        <button onclick="copyToClipboard('0xb2Af97fB9D8bD0dA95ACDA21F694Fe43EACB15c1', this)"
+                            class="text-gray-400 hover:text-white transition-colors p-2">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- USDT Solana - NEW -->
+                <div class="crypto-item p-4 rounded-xl flex flex-col gap-3">
+                    <div class="flex items-center gap-2">
+                        <img src="https://cryptologos.cc/logos/tether-usdt-logo.svg?v=025" width="24" alt="USDT">
+                        <span class="font-bold">USDT Solana</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-black/40 p-2.5 rounded-lg border border-white/5">
+                        <code
+                            class="mono text-xs text-gray-400 truncate flex-grow">5r2H3R2wXmA1JimpCypmoWLh8eGmdZA6VWjuit3AuBkq</code>
+                        <button onclick="copyToClipboard('5r2H3R2wXmA1JimpCypmoWLh8eGmdZA6VWjuit3AuBkq', this)"
+                            class="text-gray-400 hover:text-white transition-colors p-2">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- USDT ERC20 - NEW -->
+                <div class="crypto-item p-4 rounded-xl flex flex-col gap-3">
+                    <div class="flex items-center gap-2">
+                        <img src="https://cryptologos.cc/logos/tether-usdt-logo.svg?v=025" width="24" alt="USDT">
+                        <span class="font-bold">USDT (ERC20)</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-black/40 p-2.5 rounded-lg border border-white/5">
+                        <code
+                            class="mono text-xs text-gray-400 truncate flex-grow">0xf35Afdf42C8bf1C3bF08862f573c2358461e697f</code>
+                        <button onclick="copyToClipboard('0xf35Afdf42C8bf1C3bF08862f573c2358461e697f', this)"
+                            class="text-gray-400 hover:text-white transition-colors p-2">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Solana - Original -->
+                <div class="crypto-item p-4 rounded-xl flex flex-col gap-3">
+                    <div class="flex items-center gap-2">
+                        <img src="https://cryptologos.cc/logos/solana-sol-logo.svg?v=025" width="24" alt="SOL">
+                        <span class="font-bold">Solana (SOL)</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-black/40 p-2.5 rounded-lg border border-white/5">
+                        <code
+                            class="mono text-xs text-gray-400 truncate flex-grow">5r2H3R2wXmA1JimpCypmoWLh8eGmdZA6VWjuit3AuBkq</code>
+                        <button onclick="copyToClipboard('5r2H3R2wXmA1JimpCypmoWLh8eGmdZA6VWjuit3AuBkq', this)"
+                            class="text-gray-400 hover:text-white transition-colors p-2">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- DOGE - New -->
+                <div class="crypto-item p-4 rounded-xl flex flex-col gap-3">
+                    <div class="flex items-center gap-2">
+                        <img src="https://cryptologos.cc/logos/dogecoin-doge-logo.svg?v=025" width="24" alt="DOGE">
+                        <span class="font-bold">Dogecoin (DOGE)</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-black/40 p-2.5 rounded-lg border border-white/5">
+                        <code
+                            class="mono text-xs text-gray-400 truncate flex-grow">DNjKKyMwHk1nRHiyrEJMfe6axBZnUewzFZ</code>
+                        <button onclick="copyToClipboard('DNjKKyMwHk1nRHiyrEJMfe6axBZnUewzFZ', this)"
+                            class="text-gray-400 hover:text-white transition-colors p-2">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- XMR - New -->
+                <div class="crypto-item p-4 rounded-xl flex flex-col gap-3">
+                    <div class="flex items-center gap-2">
+                        <img src="https://cryptologos.cc/logos/monero-xmr-logo.svg?v=025" width="24" alt="XMR">
+                        <span class="font-bold">Monero (XMR)</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-black/40 p-2.5 rounded-lg border border-white/5">
+                        <code
+                            class="mono text-xs text-gray-400 truncate flex-grow">EZWr8AiRQ81MsEYTcQcC2fMgkZ51WWws9tQb1cqTBh9Z</code>
+                        <button onclick="copyToClipboard('EZWr8AiRQ81MsEYTcQcC2fMgkZ51WWws9tQb1cqTBh9Z', this)"
+                            class="text-gray-400 hover:text-white transition-colors p-2">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Polygon (POL) - New -->
+                <div class="crypto-item p-4 rounded-xl flex flex-col gap-3">
+                    <div class="flex items-center gap-2">
+                        <img src="https://cryptologos.cc/logos/polygon-matic-logo.svg?v=025" width="24" alt="POL">
+                        <span class="font-bold">Polygon (POL)</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-black/40 p-2.5 rounded-lg border border-white/5">
+                        <code
+                            class="mono text-xs text-gray-400 truncate flex-grow">0xb2Af97fB9D8bD0dA95ACDA21F694Fe43EACB15c1</code>
+                        <button onclick="copyToClipboard('0xb2Af97fB9D8bD0dA95ACDA21F694Fe43EACB15c1', this)"
+                            class="text-gray-400 hover:text-white transition-colors p-2">
                             <i class="far fa-copy"></i>
                         </button>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <footer class="mt-10 text-center text-gray-500 text-sm">
-            &copy; 2026 Adiru3. Built with GitHub Style.
+        <!-- Footer -->
+        <footer class="text-center text-gray-500 text-sm mt-12 pb-8">
+            <p id="footer-text">&copy; 2026 Adiru3. All Rights Reserved.</p>
         </footer>
     </div>
 
+    <!-- Notification Toast -->
+    <div id="toast"
+        class="fixed bottom-8 left-1/2 -translate-x-1/2 glass-card px-6 py-3 text-sm font-semibold pointer-events-none opacity-0 transition-opacity flex items-center gap-2 border-primary/50 shadow-[0_0_20px_rgba(139,92,246,0.3)]">
+        <i class="fas fa-check-circle text-green-400"></i>
+        <span id="toast-msg">Copied to clipboard!</span>
+    </div>
+
     <script>
-        // Copy Function
+        const translations = {
+            en: {
+                role: "Digital Architect",
+                bio: "Creating immersive experiences and high-performance applications through digital architecture and design.",
+                socialsLabel: "Stay Connected",
+                supportLabel: "Support My Platforms",
+                donateTitle: "Crypto Donations",
+                footerText: "© 2026 Adiru3. All Rights Reserved.",
+                copied: "Copied to clipboard!"
+            },
+            ru: {
+                role: "Цифровой Архитектор",
+                bio: "Создание иммерсивных продуктов и высокопроизводительных приложений через цифровую архитектуру и дизайн.",
+                socialsLabel: "Оставайтесь на связи",
+                supportLabel: "Поддержать мои платформы",
+                donateTitle: "Крипто Пожертвования",
+                footerText: "© 2026 Adiru3. Все права защищены.",
+                copied: "Скопировано в буфер!"
+            },
+            uk: {
+                role: "Цифровий Архітектор",
+                bio: "Створення імерсивних продуктів та високопродуктивних додатків через цифрову архітектуру та дизайн.",
+                socialsLabel: "Залишайтеся на зв'язку",
+                supportLabel: "Підтримати мої платформи",
+                donateTitle: "Крипто Пожертвування",
+                footerText: "© 2026 Adiru3. Всі права захищені.",
+                copied: "Скопійовано!"
+            },
+            tr: {
+                role: "Dijital Mimar",
+                bio: "Dijital mimari ve tasarım yoluyla sürükleyici deneyimler ve yüksek performanslı uygulamalar oluşturma.",
+                socialsLabel: "Bağlantıda Kalın",
+                supportLabel: "Platformlarımı Destekleyin",
+                donateTitle: "Kripto Bağışlar",
+                footerText: "© 2026 Adiru3. Tüm Hakları Saklıdır.",
+                copied: "Panoya kopyalandı!"
+            },
+            zh: {
+                role: "数字架构师",
+                bio: "通过数字架构和设计创造身临其境的体验和高性能应用程序。",
+                socialsLabel: "保持联系",
+                supportLabel: "支持我的平台",
+                donateTitle: "加密货币捐赠",
+                footerText: "© 2026 Adiru3. 版权所有。",
+                copied: "已复制到剪贴板！"
+            },
+            ja: {
+                role: "デジタルアーキテクト",
+                bio: "デジタルアーキテクチャとデザインを通じて、没入型の体験と高性能なアプリケーションを作成します。",
+                socialsLabel: "つながりを保つ",
+                supportLabel: "私のプラットフォームをサポートする",
+                donateTitle: "暗号資産寄付",
+                footerText: "© 2026 Adiru3. 全著作権所有。",
+                copied: "クリップボードにコピーされました！"
+            },
+            ar: {
+                role: "معماري رقمي",
+                bio: "إنشاء تجارب غامرة وتطبيقات عالية الأداء من خلال الهندسة الرقمية والتصميم.",
+                socialsLabel: "ابق على تواصل",
+                supportLabel: "دعم منصاتي",
+                donateTitle: "تبرعات العملات الرقمية",
+                footerText: "© 2026 Adiru3. جميع الحقوق محفوظة.",
+                copied: "تم النسخ إلى الحافظة!"
+            }
+        };
+
+        function setLang(lang) {
+            document.getElementById('role').innerText = translations[lang].role;
+            document.getElementById('bio').innerText = translations[lang].bio;
+            document.getElementById('socials-label').innerText = translations[lang].socialsLabel;
+            document.getElementById('support-label').innerText = translations[lang].supportLabel;
+            document.getElementById('donate-title').innerHTML = `<i class="fas fa-wallet text-yellow-500"></i> ${translations[lang].donateTitle}`;
+            document.getElementById('footer-text').innerText = translations[lang].footerText;
+            document.getElementById('toast-msg').innerText = translations[lang].copied;
+            document.documentElement.lang = lang;
+        }
+
         function copyToClipboard(text, btn) {
             navigator.clipboard.writeText(text).then(() => {
-                const icon = btn.innerHTML;
-                btn.innerHTML = '<i class="fas fa-check text-green-500"></i>';
+                const toast = document.getElementById('toast');
+                toast.style.opacity = '1';
+                const icon = btn.querySelector('i');
+                const originalClass = icon.className;
+                icon.className = 'fas fa-check text-green-400';
                 setTimeout(() => {
-                    btn.innerHTML = icon;
+                    toast.style.opacity = '0';
+                    icon.className = originalClass;
                 }, 2000);
             });
         }
 
-        // Language Switcher Logic (Simple implementation)
-        const translations = {
-            en: { title: "Donate Crypto" },
-            ru: { title: "Пожертвовать крипту" },
-            uk: { title: "Підтримати криптою" },
-            tr: { title: "Kripto Bağış Yap" },
-            zh: { title: "加密货币捐赠" },
-            ja: { title: "暗号資産で寄付" },
-            ar: { title: "تبرع بالعملات الرقمية" }
-        };
-
-        document.getElementById('langSwitcher').addEventListener('change', (e) => {
-            const lang = e.target.value;
-            const h2 = document.querySelector('h2');
-            if(translations[lang]) {
-                h2.innerHTML = `<i class="fas fa-wallet mr-2 text-yellow-500"></i> ${translations[lang].title}`;
-            }
-        });
+        // Detect system language
+        const userLang = navigator.language || navigator.userLanguage;
+        const shortLang = userLang.split('-')[0];
+        if (translations[shortLang]) {
+            document.getElementById('langSwitcher').value = shortLang;
+            setLang(shortLang);
+        }
     </script>
 </body>
+
 </html>
