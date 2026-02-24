@@ -294,8 +294,8 @@
                                 <i class="fab fa-github text-white group-hover:scale-110 transition-transform"></i>
                                 <span class="font-semibold text-sm">GitHub</span>
                             </a>
-                            <a href="mailto:adiru3.dev@gmail.com"
-                                class="flex items-center gap-2 px-5 py-2.5 glass-card bg-rose-900/20 hover:bg-rose-800/40 group">
+                            <a href="#" onclick="openEmailModal(event)"
+                                class="flex items-center gap-2 px-5 py-2.5 glass-card bg-rose-900/20 hover:bg-rose-800/40 group cursor-pointer">
                                 <i class="fas fa-envelope text-rose-500 group-hover:scale-110 transition-transform"></i>
                                 <span id="google-mail-text" class="font-semibold text-sm text-rose-200">Google
                                     Mail</span>
@@ -671,7 +671,9 @@
                 amazearbAdv2: "<b>Maximum Profit:</b> Search for spreads up to 500%+ with execution in milliseconds.",
                 amazearbAdv3: "<b>All Types of Arbitrage:</b> P2P + Spot, Cross-Chain, Funding, Stables, and LST/LRT tokens.",
                 amazearbAdv4: "<b>Bonus:</b> Free AirDrops section for all users.",
-                googleMail: "Google Mail"
+                googleMail: "Google Mail",
+                emailModalTitle: "Contact via Email",
+                copyEmail: "Copy Email"
             },
             ru: {
                 role: "Цифровой Архитектор",
@@ -693,7 +695,9 @@
                 amazearbAdv2: "<b>Максимальная прибыль:</b> Поиск спредов до 500%+ с исполнением за миллисекунды.",
                 amazearbAdv3: "<b>Все виды арбитража:</b> P2P + Spot, Cross-Chain, Фандинг, Стейблкоины и LST/LRT токены.",
                 amazearbAdv4: "<b>Бонус:</b> Раздел с бесплатными AirDrops для всех пользователей.",
-                googleMail: "Google Почта"
+                googleMail: "Google Почта",
+                emailModalTitle: "Связаться по почте",
+                copyEmail: "Копировать почту"
             },
             uk: {
                 role: "Цифровий Архітектор",
@@ -715,7 +719,9 @@
                 amazearbAdv2: "<b>Максимальний прибуток:</b> Пошук спредів до 500%+.",
                 amazearbAdv3: "<b>Всі види арбітражу:</b> P2P + Spot, Cross-Chain, Фандинг.",
                 amazearbAdv4: "<b>Бонус:</b> Розділ з безкоштовними AirDrops.",
-                googleMail: "Google Пошта"
+                googleMail: "Google Пошта",
+                emailModalTitle: "Зв'язатися поштою",
+                copyEmail: "Копіювати пошту"
             },
             tr: {
                 role: "Dijital Mimar",
@@ -737,7 +743,9 @@
                 amazearbAdv2: "<b>Maksimum Kar:</b> %500+'e varan spreadler.",
                 amazearbAdv3: "<b>Her Türlü Arbitraj:</b> P2P, Spot, Çapraz Zincir.",
                 amazearbAdv4: "<b>Bonus:</b> Tüm kullanıcılar için ücretsiz AirDrops.",
-                googleMail: "Google Mail"
+                googleMail: "Google Mail",
+                emailModalTitle: "E-posta ile İletişime Geçin",
+                copyEmail: "E-postayı Kopyala"
             },
             zh: {
                 role: "数字架构师",
@@ -759,7 +767,9 @@
                 amazearbAdv2: "<b>最大利润：</b> 搜索高达 500%+ 的点差。",
                 amazearbAdv3: "<b>各种套利：</b> P2P、现货、跨链。",
                 amazearbAdv4: "<b>奖励：</b> 所有用户的免费 AirDrops 部分。",
-                googleMail: "Google 邮件"
+                googleMail: "Google 邮件",
+                emailModalTitle: "通过邮件联系",
+                copyEmail: "复制邮件"
             },
             ja: {
                 role: "デジタルアーキテクト",
@@ -781,7 +791,9 @@
                 amazearbAdv2: "<b>最大利益：</b> 500％以上のスプレッドを検索。",
                 amazearbAdv3: "<b>すべてのアービトラージ：</b> P2P、スポット、クロスチェーン。",
                 amazearbAdv4: "<b>ボーナス：</b> すべてのユーザー向けの無料AirDrops。",
-                googleMail: "Google メール"
+                googleMail: "Google メール",
+                emailModalTitle: "メールでお問い合わせ",
+                copyEmail: "メールをコピー"
             },
             ar: {
                 role: "معماري رقمي",
@@ -803,7 +815,9 @@
                 amazearbAdv2: "<b>ربح أقصى:</b> انتشار يصل إلى 500%+.",
                 amazearbAdv3: "<b>كل أنواع التحكيم:</b> P2P ، Spot ، Cross-Chain.",
                 amazearbAdv4: "<b>مكافأة:</b> قسم AirDrops مجاني لجميع المستخدمين.",
-                googleMail: "بريد جوجل"
+                googleMail: "بريد جوجل",
+                emailModalTitle: "اتصل عبر البريد الإلكتروني",
+                copyEmail: "نسخ البريد الإلكتروني"
             }
         };
 
@@ -831,6 +845,10 @@
             document.getElementById('donate-title').innerHTML = `<i class="fas fa-wallet text-yellow-500"></i> ${translations[lang].donateTitle}`;
             document.getElementById('footer-text').innerText = translations[lang].footerText;
             document.getElementById('toast-msg').innerText = translations[lang].copied;
+
+            if (document.getElementById('email-modal-title')) document.getElementById('email-modal-title').innerText = translations[lang].emailModalTitle;
+            if (document.getElementById('copy-email-btn-text')) document.getElementById('copy-email-btn-text').innerText = translations[lang].copyEmail;
+
             document.documentElement.lang = lang;
         }
 
@@ -869,9 +887,25 @@
             document.body.style.overflow = '';
         }
 
+        function openEmailModal(e) {
+            if (e) e.preventDefault();
+            const modal = document.getElementById('emailModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeEmailModal() {
+            const modal = document.getElementById('emailModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
         // Close on escape
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeModal();
+            if (e.key === 'Escape') {
+                closeModal();
+                closeEmailModal();
+            }
         });
     </script>
 
@@ -926,6 +960,38 @@
                     class="px-8 py-3 rounded-full border border-white/10 hover:bg-white/5 font-bold transition-all">
                     Закрыть
                 </button>
+            </div>
+        </div>
+    </div>
+    <!-- Email Modal -->
+    <div id="emailModal" class="modal">
+        <div class="modal-overlay" onclick="closeEmailModal()"></div>
+        <div class="modal-content !max-w-md">
+            <div class="modal-close" onclick="closeEmailModal()">
+                <i class="fas fa-times"></i>
+            </div>
+            <h2 id="email-modal-title" class="text-xl md:text-2xl font-bold mb-6 text-white text-center">Contact via
+                Email</h2>
+
+            <div class="flex flex-col gap-6 items-center">
+                <div
+                    class="w-20 h-20 rounded-full bg-rose-500/10 flex items-center justify-center border border-rose-500/20 shadow-[0_0_30px_rgba(244,63,94,0.15)]">
+                    <i class="fas fa-envelope text-3xl text-rose-500"></i>
+                </div>
+
+                <div class="w-full bg-black/40 p-4 rounded-xl border border-white/5 flex flex-col items-center gap-3">
+                    <code class="mono text-base text-gray-200">adiru3.dev@gmail.com</code>
+                    <button onclick="copyToClipboard('adiru3.dev@gmail.com', this)"
+                        class="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-500 font-bold text-sm transition-all group w-full justify-center">
+                        <i class="far fa-copy group-hover:scale-110 transition-transform"></i>
+                        <span id="copy-email-btn-text">Copy Email</span>
+                    </button>
+                </div>
+
+                <a href="mailto:adiru3.dev@gmail.com"
+                    class="text-sm text-gray-500 hover:text-rose-400 transition-colors underline decoration-rose-500/30 underline-offset-4">
+                    Or open in mail client
+                </a>
             </div>
         </div>
     </div>
